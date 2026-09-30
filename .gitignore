@@ -1,0 +1,12 @@
+# Build output
+/bin/
+/dist/
+
+# Editor and OS clutter
+.DS_Store
+.idea/
+.vscode/
+
+# Local scratch files people create while trying the tool out
+/scratch/
+*.test
