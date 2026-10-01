@@ -58,6 +58,7 @@ pandoc 本身非常强大，但它的命令行更像一个工具箱：想把 Mar
 
 ## 运行要求
 
+- 从源码构建需要 Go 1.24.2 或更新版本
 - `PATH` 里有 pandoc 3.x（找不到时程序会告诉你怎么办）
 - 支持 UTF-8 的终端
 - macOS / Linux / Windows
@@ -67,6 +68,9 @@ pandoc 本身非常强大，但它的命令行更像一个工具箱：想把 Mar
 ```sh
 go install github.com/WillHouMoe/pandoc-tui@latest
 ```
+
+`go install` 会把模块版本写进二进制，所以 `pandoc-tui --version` 能告诉你
+手上跑的到底是哪一版。
 
 或者从源码构建：
 

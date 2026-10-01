@@ -60,6 +60,7 @@ that implements an interface; no screen has to change. See
 
 ## Requirements
 
+- Go 1.24.2 or newer, if you are building from source
 - pandoc 3.x on your `PATH` (the app finds it, and tells you how to fix it if
   it cannot)
 - A UTF-8 terminal
@@ -70,6 +71,9 @@ that implements an interface; no screen has to change. See
 ```sh
 go install github.com/WillHouMoe/pandoc-tui@latest
 ```
+
+`go install` records the module version in the binary, so `pandoc-tui --version`
+tells you exactly which build you are running.
 
 Or from a checkout:
 

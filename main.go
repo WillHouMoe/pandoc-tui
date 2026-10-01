@@ -11,6 +11,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"runtime/debug"
 
 	tea "github.com/charmbracelet/bubbletea"
 
@@ -23,6 +24,23 @@ import (
 
 // version is stamped at build time: -ldflags "-X main.version=v0.1.0".
 var version = "dev"
+
+// init falls back to the version Go records in the binary. Without this,
+// `go install ...@v0.1.0` would report "dev", which tells the user nothing
+// about what they installed.
+func init() {
+	if version != "dev" {
+		return
+	}
+	info, ok := debug.ReadBuildInfo()
+	if !ok {
+		return
+	}
+	// Local `go build` reports "(devel)"; only a real module version helps.
+	if v := info.Main.Version; v != "" && v != "(devel)" {
+		version = v
+	}
+}
 
 func main() {
 	if err := run(); err != nil {
