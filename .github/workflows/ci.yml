@@ -1,8 +1,9 @@
 name: ci
 
 on:
+  # No branch filter: the default branch name is a repository setting, and a
+  # workflow that silently never runs is worse than one that runs a bit often.
   push:
-    branches: [main]
   pull_request:
 
 jobs:
